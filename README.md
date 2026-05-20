@@ -1,1 +1,2 @@
-# .NET 2026 VT\n\nÖvningar från Lexicon Fullstack .NET & AI-programmet.
+# .NET 2026 VT
+Övningar från Lexicon Fullstack .NET & AI-programmet.
