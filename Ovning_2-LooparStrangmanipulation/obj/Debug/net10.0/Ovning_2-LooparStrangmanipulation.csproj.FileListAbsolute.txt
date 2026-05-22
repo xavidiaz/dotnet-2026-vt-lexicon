@@ -1,0 +1,15 @@
+/home/xavidiaz/Dev/dotnet-2026-vt-lexicon/Ovning_2-LooparStrangmanipulation/bin/Debug/net10.0/Ovning_2-LooparStrangmanipulation
+/home/xavidiaz/Dev/dotnet-2026-vt-lexicon/Ovning_2-LooparStrangmanipulation/bin/Debug/net10.0/Ovning_2-LooparStrangmanipulation.deps.json
+/home/xavidiaz/Dev/dotnet-2026-vt-lexicon/Ovning_2-LooparStrangmanipulation/bin/Debug/net10.0/Ovning_2-LooparStrangmanipulation.runtimeconfig.json
+/home/xavidiaz/Dev/dotnet-2026-vt-lexicon/Ovning_2-LooparStrangmanipulation/bin/Debug/net10.0/Ovning_2-LooparStrangmanipulation.dll
+/home/xavidiaz/Dev/dotnet-2026-vt-lexicon/Ovning_2-LooparStrangmanipulation/bin/Debug/net10.0/Ovning_2-LooparStrangmanipulation.pdb
+/home/xavidiaz/Dev/dotnet-2026-vt-lexicon/Ovning_2-LooparStrangmanipulation/obj/Debug/net10.0/Ovning_2-LooparStrangmanipulation.GeneratedMSBuildEditorConfig.editorconfig
+/home/xavidiaz/Dev/dotnet-2026-vt-lexicon/Ovning_2-LooparStrangmanipulation/obj/Debug/net10.0/Ovning_2-LooparStrangmanipulation.AssemblyInfoInputs.cache
+/home/xavidiaz/Dev/dotnet-2026-vt-lexicon/Ovning_2-LooparStrangmanipulation/obj/Debug/net10.0/Ovning_2-LooparStrangmanipulation.AssemblyInfo.cs
+/home/xavidiaz/Dev/dotnet-2026-vt-lexicon/Ovning_2-LooparStrangmanipulation/obj/Debug/net10.0/Ovning_2-LooparStrangmanipulation.csproj.CoreCompileInputs.cache
+/home/xavidiaz/Dev/dotnet-2026-vt-lexicon/Ovning_2-LooparStrangmanipulation/obj/Debug/net10.0/Ovning_2-LooparStrangmanipulation.sourcelink.json
+/home/xavidiaz/Dev/dotnet-2026-vt-lexicon/Ovning_2-LooparStrangmanipulation/obj/Debug/net10.0/Ovning_2-LooparStrangmanipulation.dll
+/home/xavidiaz/Dev/dotnet-2026-vt-lexicon/Ovning_2-LooparStrangmanipulation/obj/Debug/net10.0/refint/Ovning_2-LooparStrangmanipulation.dll
+/home/xavidiaz/Dev/dotnet-2026-vt-lexicon/Ovning_2-LooparStrangmanipulation/obj/Debug/net10.0/Ovning_2-LooparStrangmanipulation.pdb
+/home/xavidiaz/Dev/dotnet-2026-vt-lexicon/Ovning_2-LooparStrangmanipulation/obj/Debug/net10.0/Ovning_2-LooparStrangmanipulation.genruntimeconfig.cache
+/home/xavidiaz/Dev/dotnet-2026-vt-lexicon/Ovning_2-LooparStrangmanipulation/obj/Debug/net10.0/ref/Ovning_2-LooparStrangmanipulation.dll

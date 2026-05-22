@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "Ovning_2-LooparStrangmanipulation/1.0.0": {
+        "runtime": {
+          "Ovning_2-LooparStrangmanipulation.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Ovning_2-LooparStrangmanipulation/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
