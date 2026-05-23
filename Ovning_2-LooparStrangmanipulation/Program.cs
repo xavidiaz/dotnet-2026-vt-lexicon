@@ -2,53 +2,67 @@
 {
     public static void Run()
     {
-        Console.WriteLine("Välkommen till Huvudmeny!");
+        Console.WriteLine("Välkommen till Applicationer!");
         while (true)
         {
             Console.WriteLine("Välja mellan");
-            Console.Write("(0)Anvsluta");
-            string val = Console.ReadLine() ?? "";
+            Console.Write("(0)Anvsluta, (1)Bio-pris[enkel], (2)Bio-pris[grupp], (3)Upprepa text, (4)Tredje Ordet: ");
+            string val = (Console.ReadLine() ?? "").ToLower();
             switch (val)
             {
-                case "1":
-                    Console.Clear();
-                    CheckAge();
-                    break;
-                case "0":
+                 case "0":
                     Console.Clear();
                     Console.WriteLine("Hej då!");
                     return;
-                default:
+                case "1":
+                    Console.Clear();
+                    BioEnkel();
+                    break;
+               case "2":
+                    Console.Clear();
+                    BioGrupp();
+                    break;
+               case "3":
+                    Console.Clear();
+                    UpprepaText();
+                    break;
+               case "4":
+                    Console.Clear();
+                    TredjeOrdet();
+                    break;
+               default:
+                    Console.Clear();
                     Console.WriteLine("Felaktig Input!");
                     break;
             }
         }
     }
-    private static void CheckAge()
+    private static void BioEnkel()
     {
-        Console.Write("(U)ngdom eller (P)ensionär?");
-        string val = Console.ReadLine() ?? "";
-        switch (val)
-        {
-            case "u":
-                Console.WriteLine("Ungdom vält");
-                return;
-            case "P":
-                Console.WriteLine("Pensionär vält");
-                return;
-            default:
-                Console.WriteLine("Try againg");
-                break;
-        }
+      Console.WriteLine("Bio-pris [enkel]");
     }
+    private static void BioGrupp()
+    {
+      Console.WriteLine("Bio-pris [grupp]");
+    }
+    private static void TredjeOrdet()
+    {
+      Console.WriteLine("Tredje Ordet");
+    }
+    private static void UpprepaText()
+    {
+      Console.WriteLine("Upprepa Text");
+    }
+
+
+
+
 }
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello from Main");
-
         Menu.Run();
     }
 
