@@ -40,6 +40,17 @@
     private static void BioEnkel()
     {
       Console.WriteLine("Bio-pris [enkel]");
+      while (true)
+      {
+        Console.Write("Ange ålder: ");
+        if (int.TryParse(Console.ReadLine(), out int age))   {
+          Console.WriteLine($"Ålder: {age}");
+          Console.Clear();
+          return;
+        }
+        Console.Clear();
+        Console.WriteLine("Felaktig inmatning! Försök igen!");
+      }
     }
     private static void BioGrupp()
     {
