@@ -20,8 +20,8 @@
                     BioEnkel();
                     break;
                case "2":
-      Console.WriteLine("Bio-pris [grupp]");
                     Console.Clear();
+      Console.WriteLine("Bio-pris [grupp]");
                     BioGrupp();
                     break;
                case "3":
@@ -30,6 +30,7 @@
                     break;
                case "4":
                     Console.Clear();
+      Console.WriteLine("Tredje Ordet");
                     TredjeOrdet();
                     break;
                default:
@@ -85,8 +86,8 @@
         for (int i = 0; i < nPersons; i++)
         {
            amounts.Add(BioEnkel()); 
-           total = amounts.Sum();
         }
+           total = amounts.Sum();
            Console.WriteLine($"Total personer: {nPersons}\nTotalkostnad: {total}");
          return;
       }
@@ -95,8 +96,20 @@
     }
     private static void TredjeOrdet()
     {
-      Console.WriteLine("Tredje Ordet");
-    }
+
+    // Logic     Console.WriteLine("Skriv en menning minst 3 ord: ");
+      while (true){
+        Console.WriteLine("Skriv en menning, mer en 3 ord: ");
+      string menning = Console.ReadLine() ?? "";
+      string[] words = menning.Split(" ");
+     int nWords = words.Count();
+     if (nWords > 2){
+       Console.WriteLine($""Det tredje ordet är: {nWords[2]});
+      return;
+     }
+Console.WriteLine("Meningen måste innehålla minst 3 ord. Försök igen!");
+      }
+   }
     private static void UpprepaText()
     {
       Console.WriteLine("Upprepa Text");
