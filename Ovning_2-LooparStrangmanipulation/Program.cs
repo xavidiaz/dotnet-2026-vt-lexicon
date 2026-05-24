@@ -5,6 +5,7 @@
         Console.WriteLine("Välkommen till Applicationer!");
         while (true)
         {
+            Console.Clear();
             Console.WriteLine("Välja mellan");
             Console.Write("(0)Anvsluta, (1)Bio-pris[enkel], (2)Bio-pris[grupp], (3)Upprepa text, (4)Tredje Ordet: ");
             string val = (Console.ReadLine() ?? "").ToLower();
@@ -45,7 +46,17 @@
         Console.Write("Ange ålder: ");
         if (int.TryParse(Console.ReadLine(), out int age))   {
           Console.WriteLine($"Ålder: {age}");
-          Console.Clear();
+          if (age < 20){
+            Console.WriteLine("Ungdomspris: 80kr");
+          }else if (age < 64)
+          {
+             Console.WriteLine("Standardpris: 120kr");
+          } else
+          {
+              Console.WriteLine("Pensinärspris: 90kr");
+          }
+          Thread.Sleep(2000);
+
           return;
         }
         Console.Clear();
