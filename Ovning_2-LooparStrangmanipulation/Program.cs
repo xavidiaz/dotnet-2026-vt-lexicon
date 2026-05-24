@@ -5,7 +5,6 @@
         Console.WriteLine("Välkommen till Applicationer!");
         while (true)
         {
-            Console.Clear();
             Console.WriteLine("Välja mellan");
             Console.Write("(0)Anvsluta, (1)Bio-pris[enkel], (2)Bio-pris[grupp], (3)Upprepa text, (4)Tredje Ordet: ");
             string val = (Console.ReadLine() ?? "").ToLower();
@@ -16,10 +15,12 @@
                     Console.WriteLine("Hej då!");
                     return;
                 case "1":
+      Console.WriteLine("Bio-pris [enkel]");
                     Console.Clear();
                     BioEnkel();
                     break;
                case "2":
+      Console.WriteLine("Bio-pris [grupp]");
                     Console.Clear();
                     BioGrupp();
                     break;
@@ -37,27 +38,33 @@
                     break;
             }
         }
+
     }
-    private static void BioEnkel()
+    private static int BioEnkel()
     {
-      Console.WriteLine("Bio-pris [enkel]");
+      // Lagring
+      int pris = 0;
+
+      // Logic
       while (true)
       {
         Console.Write("Ange ålder: ");
         if (int.TryParse(Console.ReadLine(), out int age))   {
           Console.WriteLine($"Ålder: {age}");
           if (age < 20){
-            Console.WriteLine("Ungdomspris: 80kr");
-          }else if (age < 64)
+          pris = 80;
+            Console.WriteLine($"Ungdomspris: {pris}kr");
+          }else if (age < 65)
           {
-             Console.WriteLine("Standardpris: 120kr");
+            pris = 120;
+             Console.WriteLine($"Standardpris: {pris}kr");
           } else
           {
-              Console.WriteLine("Pensinärspris: 90kr");
+            pris = 90;
+              Console.WriteLine($"Pensinärspris: {pris}kr");
           }
-          Thread.Sleep(2000);
 
-          return;
+          return pris;
         }
         Console.Clear();
         Console.WriteLine("Felaktig inmatning! Försök igen!");
@@ -65,7 +72,26 @@
     }
     private static void BioGrupp()
     {
-      Console.WriteLine("Bio-pris [grupp]");
+     // Lagring 
+      List<int> amounts = new();
+      int total = 0;
+
+      // Logic
+
+      while (true){
+      Console.WriteLine("Hur många personer i sällskapet?: ");
+      if (int.TryParse(Console.ReadLine(), out int nPersons))
+      {
+        for (int i = 0; i < nPersons; i++)
+        {
+           amounts.Add(BioEnkel()); 
+           total = amounts.Sum();
+        }
+           Console.WriteLine($"Total personer: {nPersons}\nTotalkostnad: {total}");
+         return;
+      }
+      Console.WriteLine("Felaktig inmatning! Måste vara en heltal.\n Försök igen!");
+      }
     }
     private static void TredjeOrdet()
     {
