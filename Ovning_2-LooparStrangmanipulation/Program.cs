@@ -120,25 +120,29 @@
     }
     private static void UpprepaText()
     {
-        Console.Write("Skriv en text att Upprepa: ");
-        string text = Console.ReadLine() ?? "";
-
-        for (int i = 1; i < 11; i++)
+        while (true)
         {
-            if (i < 10)
+            Console.Write("Skriv en text att Upprepa: ");
+            string text = Console.ReadLine() ?? "";
+
+            if (!string.IsNullOrEmpty(text))
             {
-                Console.Write($"{i}. {text} ");
+                for (int i = 1; i < 11; i++)
+                {
+                    if (i < 10)
+                    {
+                        Console.Write($"{i}. {text} ");
+                    }
+                    else
+                    {
+                        Console.Write($"{i}. {text}\n");
+                    }
+                }
+                return;
             }
-            else
-            {
-                Console.Write($"{i}. {text}\n");
-            }
+            Console.WriteLine("Försök igen!");
         }
     }
-
-
-
-
 }
 
 class Program
