@@ -10,30 +10,30 @@
             string val = (Console.ReadLine() ?? "").ToLower();
             switch (val)
             {
-                 case "0":
+                case "0":
                     Console.Clear();
                     Console.WriteLine("Hej då!");
                     return;
                 case "1":
-      Console.WriteLine("Bio-pris [enkel]");
+                    Console.WriteLine("Bio-pris [enkel]");
                     Console.Clear();
                     BioEnkel();
                     break;
-               case "2":
+                case "2":
                     Console.Clear();
-      Console.WriteLine("Bio-pris [grupp]");
+                    Console.WriteLine("Bio-pris [grupp]");
                     BioGrupp();
                     break;
-               case "3":
+                case "3":
                     Console.Clear();
                     UpprepaText();
                     break;
-               case "4":
+                case "4":
                     Console.Clear();
-      Console.WriteLine("Tredje Ordet");
+                    Console.WriteLine("Tredje Ordet");
                     TredjeOrdet();
                     break;
-               default:
+                default:
                     Console.Clear();
                     Console.WriteLine("Felaktig Input!");
                     break;
@@ -43,76 +43,82 @@
     }
     private static int BioEnkel()
     {
-      // Lagring
-      int pris = 0;
+        // Lagring
+        int pris = 0;
 
-      // Logic
-      while (true)
-      {
-        Console.Write("Ange ålder: ");
-        if (int.TryParse(Console.ReadLine(), out int age))   {
-          Console.WriteLine($"Ålder: {age}");
-          if (age < 20){
-          pris = 80;
-            Console.WriteLine($"Ungdomspris: {pris}kr");
-          }else if (age < 65)
-          {
-            pris = 120;
-             Console.WriteLine($"Standardpris: {pris}kr");
-          } else
-          {
-            pris = 90;
-              Console.WriteLine($"Pensinärspris: {pris}kr");
-          }
+        // Logic
+        while (true)
+        {
+            Console.Write("Ange ålder: ");
+            if (int.TryParse(Console.ReadLine(), out int age))
+            {
+                Console.WriteLine($"Ålder: {age}");
+                if (age < 20)
+                {
+                    pris = 80;
+                    Console.WriteLine($"Ungdomspris: {pris}kr");
+                }
+                else if (age < 65)
+                {
+                    pris = 120;
+                    Console.WriteLine($"Standardpris: {pris}kr");
+                }
+                else
+                {
+                    pris = 90;
+                    Console.WriteLine($"Pensinärspris: {pris}kr");
+                }
 
-          return pris;
+                return pris;
+            }
+            Console.Clear();
+            Console.WriteLine("Felaktig inmatning! Försök igen!");
         }
-        Console.Clear();
-        Console.WriteLine("Felaktig inmatning! Försök igen!");
-      }
     }
     private static void BioGrupp()
     {
-     // Lagring 
-      List<int> amounts = new();
-      int total = 0;
+        // Lagring 
+        List<int> amounts = new();
+        int total = 0;
 
-      // Logic
+        // Logic
 
-      while (true){
-      Console.WriteLine("Hur många personer i sällskapet?: ");
-      if (int.TryParse(Console.ReadLine(), out int nPersons))
-      {
-        for (int i = 0; i < nPersons; i++)
+        while (true)
         {
-           amounts.Add(BioEnkel()); 
+            Console.WriteLine("Hur många personer i sällskapet?: ");
+            if (int.TryParse(Console.ReadLine(), out int nPersons))
+            {
+                for (int i = 0; i < nPersons; i++)
+                {
+                    amounts.Add(BioEnkel());
+                }
+                total = amounts.Sum();
+                Console.WriteLine($"Total personer: {nPersons}\nTotalkostnad: {total}");
+                return;
+            }
+            Console.WriteLine("Felaktig inmatning! Måste vara en heltal.\n Försök igen!");
         }
-           total = amounts.Sum();
-           Console.WriteLine($"Total personer: {nPersons}\nTotalkostnad: {total}");
-         return;
-      }
-      Console.WriteLine("Felaktig inmatning! Måste vara en heltal.\n Försök igen!");
-      }
     }
     private static void TredjeOrdet()
     {
 
-    // Logic     Console.WriteLine("Skriv en menning minst 3 ord: ");
-      while (true){
-        Console.WriteLine("Skriv en menning, mer en 3 ord: ");
-      string menning = Console.ReadLine() ?? "";
-      string[] words = menning.Split(" ");
-     int nWords = words.Count();
-     if (nWords > 2){
-       Console.WriteLine($""Det tredje ordet är: {nWords[2]});
-      return;
-     }
-Console.WriteLine("Meningen måste innehålla minst 3 ord. Försök igen!");
-      }
-   }
+        while (true)
+        {
+            Console.WriteLine("Skriv en menning, mer en 3 ord: ");
+            string menning = Console.ReadLine() ?? "";
+            string[] words = menning.Split(" ");
+            int nWords = words.Count();
+            if (nWords > 2)
+            {
+                Console.WriteLine($"Det tredje ordet är: {words[2]}");
+                return;
+            }
+            Console.WriteLine("Meningen måste innehålla minst 3 ord. Försök igen!");
+        }
+    }
     private static void UpprepaText()
     {
-      Console.WriteLine("Upprepa Text");
+        Console.WriteLine("Upprepa Text");
     }
 
 
