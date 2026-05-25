@@ -26,6 +26,8 @@
                     break;
                 case "3":
                     Console.Clear();
+
+                    Console.WriteLine("Upprepa Text");
                     UpprepaText();
                     break;
                 case "4":
@@ -118,7 +120,20 @@
     }
     private static void UpprepaText()
     {
-        Console.WriteLine("Upprepa Text");
+        Console.Write("Skriv en text att Upprepa: ");
+        string text = Console.ReadLine() ?? "";
+
+        for (int i = 1; i < 11; i++)
+        {
+            if (i < 10)
+            {
+                Console.Write($"{i}. {text} ");
+            }
+            else
+            {
+                Console.Write($"{i}. {text}\n");
+            }
+        }
     }
 
 
