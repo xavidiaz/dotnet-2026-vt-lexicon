@@ -113,12 +113,11 @@
     }
     private static void TredjeOrdet()
     {
-
         while (true)
         {
             Console.WriteLine("Skriv en menning, mer en 3 ord: ");
             string menning = Console.ReadLine() ?? "";
-            string[] words = menning.Split(" ");
+            string[] words = menning.Split(" ", StringSplitOptions.RemoveEmptyEntries);
             int nWords = words.Count();
             if (nWords > 2)
             {
