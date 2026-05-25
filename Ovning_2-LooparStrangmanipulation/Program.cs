@@ -55,7 +55,12 @@
             if (int.TryParse(Console.ReadLine(), out int age))
             {
                 Console.WriteLine($"Ålder: {age}");
-                if (age < 20)
+                if (age < 5)
+                {
+                    pris = 0;
+                    Console.WriteLine("Gratis!");
+                }
+                else if (age < 20)
                 {
                     pris = 80;
                     Console.WriteLine($"Ungdomspris: {pris}kr");
@@ -65,10 +70,15 @@
                     pris = 120;
                     Console.WriteLine($"Standardpris: {pris}kr");
                 }
-                else
+                else if (age < 100)
                 {
                     pris = 90;
                     Console.WriteLine($"Pensinärspris: {pris}kr");
+                }
+                else
+                {
+                    pris = 0;
+                    Console.WriteLine("Gratis!");
                 }
 
                 return pris;
