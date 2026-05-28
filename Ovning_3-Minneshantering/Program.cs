@@ -216,6 +216,11 @@ internal class Program
 
         Console.WriteLine("TODO: Implementera FindProduct.");
 
+        foreach (var (key, product) in products)
+        {
+            Console.WriteLine(product.Code);
+        }
+
         // Fråga:
         // Varför är TryGetValue bättre än att skriva products[code] direkt?
         Console.WriteLine("Svar: TODO - skriv ditt svar här");
