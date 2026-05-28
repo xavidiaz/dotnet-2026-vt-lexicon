@@ -245,9 +245,36 @@ internal class Program
         // Lägg till produkten i products-dictionaryn.
         // Lägg till ett loggmeddelande i logMessages.
 
+        string produktKod = "";
+        while (true)
+        {
+            produktKod = InputHelpers.ReadString("Ange produkt kod, 4 täcken: ").ToUpper();
+
+            if (produktKod.Length != 4)
+            {
+                Console.WriteLine("Produkt kod måste ha exakt fyra bokstäver!");
+                continue;
+            }
+            if (products.ContainsKey(produktKod))
+            {
+                Console.WriteLine("Produkt upptangen, finns redan med annat produkt med dessa kod!");
+                continue;
+            }
+            break;
+
+        }
+        string produktNamn = InputHelpers.ReadString("Ange produkt namn: ");
+        decimal produktPris = InputHelpers.ReadDecimal("Ange produkt pris: ");
+        int produktLagerSaldo = InputHelpers.ReadInt("Ange produkt antal: ");
+
+        products[produktKod] = new Product(produktKod, produktNamn, produktPris, produktLagerSaldo);
+
+        logMessages.Add($"Produkt tillagd: {produktKod} - {produktNamn}");
+        Console.WriteLine(products[produktKod]);
+
         // Fråga:
         // Vad är nyckeln och vad är värdet i products?
-        Console.WriteLine("Svar: TODO - skriv ditt svar här");
+        Console.WriteLine("Svar: TODO - nyckeln är en unik identifierare till värdet som är en Produkt-instans.");
     }
 
     static void ChangeStock()
