@@ -214,16 +214,20 @@ internal class Program
         // Om produkten finns, skriv ut den.
         // Om produkten saknas, skriv ett felmeddelande.
 
-        Console.WriteLine("TODO: Implementera FindProduct.");
-
-        foreach (var (key, product) in products)
+        Console.Write("Ge produkt koden (4 täcken):");
+        string code = (Console.ReadLine() ?? "").ToUpper();
+        if (products.TryGetValue(code, out Product? product))
         {
-            Console.WriteLine(product.Code);
+            Console.WriteLine(Environment.NewLine + product);
+        }
+        else
+        {
+            Console.WriteLine(Environment.NewLine + "Produkt finns inte!");
         }
 
         // Fråga:
         // Varför är TryGetValue bättre än att skriva products[code] direkt?
-        Console.WriteLine("Svar: TODO - skriv ditt svar här");
+        Console.WriteLine(Environment.NewLine + "Svar: TODO - On nycklen inte finns i dictionaryn returneras false istället för att programmet krashar med ett undantag (exception)");
     }
 
     static void AddProduct()
