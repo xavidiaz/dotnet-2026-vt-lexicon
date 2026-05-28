@@ -160,16 +160,16 @@ internal class Program
         // Lägg till minst 10 produkter i products-dictionaryn.
         // Välj egna koder, namn, priser och lagersaldon.
 
-        products["KANELBULLE"] = new Product("KANELBULLE", "kanelbulle", 20.00m, 30);
-        products["CHOKLADBOLL"] = new Product("CHOKLADBOLL", "chokladboll", 25.00m, 50);
-        products["PRINCESSTÅRTA"] = new Product("PRINCESSTÅRTA", "princesstårta", 55.00m, 10);
-        products["WIENERBRÖD"] = new Product("WIENERBRÖD", "wienerbröd", 38.20m, 20);
-        products["DAMMSUGARE"] = new Product("DAMMSUGARE", "dammsugare", 30.00m, 25);
-        products["SEMLA"] = new Product("SEMLA", "semla", 45.00m, 20);
-        products["MAZARIN"] = new Product("MAZARIN", "mazarin", 29.00m, 35);
-        products["BUDAPESTRULLE"] = new Product("BUDAPESTRULLE", "budapestrulle", 42.00m, 15);
+        products["KANE"] = new Product("KANE", "kanelbulle", 20.00m, 30);
+        products["CHOK"] = new Product("CHOK", "chokladboll", 25.00m, 50);
+        products["PRIN"] = new Product("PRIN", "princesstårta", 55.00m, 10);
+        products["WIEN"] = new Product("WIEN", "wienerbröd", 38.20m, 20);
+        products["DAMM"] = new Product("DAMM", "dammsugare", 30.00m, 25);
+        products["SEML"] = new Product("SEML", "semla", 45.00m, 20);
+        products["MAZA"] = new Product("MAZA", "mazarin", 29.00m, 35);
+        products["BUDA"] = new Product("BUDA", "budapestrulle", 42.00m, 15);
         products["MUNK"] = new Product("MUNK", "munk", 22.00m, 45);
-        products["NAPOLEONBAKELSE"] = new Product("NAPOLEONBAKELSE", "napoleonbakelse", 48.00m, 12);
+        products["NAPO"] = new Product("NAPO", "napoleonbakelse", 48.00m, 12);
 
     }
 
@@ -184,10 +184,22 @@ internal class Program
         // Lagervärde för en produkt:
         // product.Price * product.Stock
 
+        // Lagring av data
+        decimal summa = 0;
+
+
+        // Logic
+        foreach (var (key, product) in products)
+        {
+            Console.WriteLine(product + Environment.NewLine + $"Lagervärde: {product.Price * product.Stock} kr.");
+            summa += product.Price * product.Stock;
+        }
+
+        Console.WriteLine(Environment.NewLine + $"Total lagervärde: {summa}." + Environment.NewLine);
 
         // Fråga:
         // Varför passar Dictionary bra för ett produktregister?
-        Console.WriteLine("Svar: TODO - skriv ditt svar här");
+        Console.WriteLine("Svar: TODO - 1. Dictionary är mer idiomatisk (naturligt), slå upp med en meningsfull kod istället för en position i listan. 2. Mindre resurskrävande O(1) istället för O(n)");
     }
 
     static void FindProduct()
