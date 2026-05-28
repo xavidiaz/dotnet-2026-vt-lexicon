@@ -279,7 +279,6 @@ internal class Program
 
     static void ChangeStock()
     {
-        Console.WriteLine("TODO: Implementera ChangeStock.");
         // TODO:
         // Läs in produktkod.
         // Slå upp produkten med TryGetValue.
@@ -288,6 +287,41 @@ internal class Program
         // Ändra produktens Stock. Validera även i product
         // 
         // Logga ändringen.
+
+        string produktKod = "";
+        while (true)
+        {
+            produktKod = Helpers.InputHelpers.ReadString("Ange produkt kod: ").ToUpper();
+
+            if (produktKod.Length != 4)
+            {
+                Console.WriteLine("Produkt kod måste ha 4 täcken");
+                continue;
+            }
+            break;
+        }
+        if (products.TryGetValue(produktKod, out Product? produkt))
+        {
+            int nyLagerSaldo = Helpers.InputHelpers.ReadInt("Ange ny lagersaldo: ");
+
+            if (nyLagerSaldo < 0)
+            {
+                Console.WriteLine("Lagersaldo kan inte vara negativt!");
+                return;
+            }
+
+            produkt.Stock = nyLagerSaldo;
+
+            Console.WriteLine($"Lager ändrat: {produktKod} - {produkt.Name}, nytt saldo: {nyLagerSaldo}");
+
+            logMessages.Add($"Lager ändrat: {produktKod} - {produkt.Name}, nytt saldo: {nyLagerSaldo}");
+
+        }
+        else
+        {
+            Console.WriteLine("Produkt kod finns inte!");
+        }
+        // OBS: Instruktionen säger "Validera även i Product" — oklart om det ska göras här eller i Product.cs. Återkommer till detta.
 
     }
 
