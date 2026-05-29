@@ -422,18 +422,30 @@ internal class Program
 
     static void ServeNextCustomer()
     {
-        Console.WriteLine("TODO: Implementera ServeNextCustomer.");
-
         // TODO:
         // Kontrollera om customerQueue är tom — skriv meddelande om den är det.
         // Om den inte är tom:
         // Använd Dequeue för att ta bort och hämta den första kunden.
         // Skriv ut vilken kund som blev betjänad.
         // Lägg till ett loggmeddelande i logMessages.
-
+        if (customerQueue.Count == 0)
+        {
+            Console.WriteLine("Kö är tom!");
+        }
+        else
+        {
+            Customer kund = customerQueue.Dequeue();
+            Console.WriteLine($"{kund} blev betjänad!");
+            logMessages.Add($"{kund} blev betjänad!");
+        }
         // Fråga:
         // Varför passar Queue bättre än Stack för en kundkö?
-        Console.WriteLine("Svar: TODO - skriv ditt svar här");
+        Console.WriteLine(
+            Environment.NewLine +
+            "Svar:" +
+            "Queue (FIFO) passar bättre för en kundkö eftersom kunder ska betjänas i den ordning de ställde sig i kön." +
+            "Med Stack (LIFO) skulle den sista kunden bethänas först, vilket vore orättvist."
+            );
     }
 
     static void PrintCustomerQueue()
