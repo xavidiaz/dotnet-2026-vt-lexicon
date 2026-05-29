@@ -450,13 +450,23 @@ internal class Program
 
     static void PrintCustomerQueue()
     {
-        Console.WriteLine("=== Kundkö ===");
-
         // TODO:
         // Om customerQueue är tom, skriv att kön är tom.
         // Annars: loopa igenom customerQueue med en räknare.
         // Skriv ut platsnummer, namn och tidsstämpel för varje kund.
         //
+        if (customerQueue.Count == 0)
+        {
+            Console.WriteLine("Kön är tom!");
+        }
+        else
+        {
+            int plats = 1;
+            foreach (Customer kund in customerQueue)
+            {
+                Console.WriteLine($"{plats++}. {kund}");
+            }
+        }
         // Exempel:
         // 1. Kalle (2026-05-26 10:01)
         // 2. Greta (2026-05-26 10:02)
