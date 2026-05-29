@@ -397,8 +397,6 @@ internal class Program
 
     static void AddCustomerToQueue()
     {
-        Console.WriteLine("TODO: Implementera AddCustomerToQueue.");
-
         // TODO:
         // Läs in kundens namn (använd InputHelpers.ReadString).
         // Skapa ett Customer-objekt med namnet.
@@ -406,9 +404,20 @@ internal class Program
         // Skriv ut att kunden lagts till och vilken plats i kön de har.
         // Lägg till ett loggmeddelande i logMessages.
 
+        string name = Helpers.InputHelpers.ReadString("Ange kundnamn: ");
+        customerQueue.Enqueue(new Customer(name));
+
+        Console.WriteLine($"{name} har lagts till på {customerQueue.Count} plats.");
+        logMessages.Add($"{name} har lagts till på {customerQueue.Count} plats.");
+
         // Fråga:
         // Vad betyder FIFO?
-        Console.WriteLine("Svar: TODO - skriv ditt svar här");
+        Console.WriteLine("Svar: TODO" +
+            Environment.NewLine +
+            "FIFO betyder First In, First Out. " +
+            Environment.NewLine +
+            "Den som läggs till först i kön tas ut först vid Dequeue(). Som en riktig kö in en butik."
+            );
     }
 
     static void ServeNextCustomer()
