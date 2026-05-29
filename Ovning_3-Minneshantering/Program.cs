@@ -498,15 +498,45 @@ internal class Program
         // Lägg Sale-objektet på saleHistory med Push.
         // Lägg till ett loggmeddelande i logMessages.
         //
+        if (customerQueue.Count == 0)
+        {
+            Console.WriteLine("kundenskö är tom!");
+        }
+        else
+        {
+            Customer first = customerQueue.Peek();
+            Console.WriteLine($"Betjänar: {first.Name}");
+
+            string produktkod = Helpers.InputHelpers.ReadString("Ange produktkod: ").ToUpper();
+            if (products.TryGetValue(produktkod, out Product? product))
+            {
+                if (product.Stock > 0)
+                {
+                    product.Stock--;
+                    Customer kund = customerQueue.Dequeue();
+                    saleHistory.Push(new Sale(product.Code, product.Name, product.Price, kund.Name));
+                    logMessages.Add($"försäljning: {product.Name} till {kund.Name}");
+                }
+                else
+                {
+                    Console.WriteLine("Ej i Stock");
+                }
+            }
+        }
+
+
         // Extra:
         // Bestäm om kunden ska tas bort från kön efter köp eller inte.
         // Motivera ditt val i kommentar.
 
-        Console.WriteLine("TODO: Implementera SellProduct.");
 
         // Fråga:
         // Varför sparar vi försäljningar i en Stack?
-        Console.WriteLine("Svar: TODO - skriv ditt svar här");
+        Console.WriteLine(
+            Environment.NewLine +
+            "Svar:" +
+            "Eftersom oftas man vill ändras sista försäljningen, inte den första. Det blir mer effektiv i dess ordning"
+            );
     }
 
     static void UndoLastSale()
