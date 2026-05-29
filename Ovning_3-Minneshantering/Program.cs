@@ -357,13 +357,33 @@ internal class Program
         // Använd TryGetValue för att slå upp priset.
         // Returnera priset om koden finns, annars -1.
         //
+        Dictionary<string, decimal> betterPrice = new()
+        {
+            ["KAF"] = 15,
+            ["TE"] = 12,
+            ["BUL"] = 18,
+            ["MCK"] = 35
+        };
+
+        if (betterPrice.TryGetValue(code, out decimal pris))
+        {
+            Console.WriteLine($"{code} = {pris}.");
+            return pris;
+        }
+
         // Jämför sedan de två metoderna — vad händer om du behöver lägga till
         // en femte produkt? Vilken metod är enklare att utöka?
 
         // Fråga:
         // Varför är Dictionary-lösningen bättre än många if/else-satser?
-        Console.WriteLine("Svar: TODO - skriv ditt svar här");
+        Console.WriteLine("Svar: TODO");
 
+        Console.WriteLine(
+            Environment.NewLine +
+            "Jag tycker att det är mer idiomatisk, mer lässbart." +
+            "Notation ser ut enklare, då dictionaryn blir lätt att utöka." +
+            "Därmed dictionaryn kråver mindre resurser. Behöver inte att gå genom varje 'else if' postående."
+            );
         return -1;
     }
 
