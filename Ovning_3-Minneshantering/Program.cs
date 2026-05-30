@@ -177,25 +177,7 @@ internal class Program
 
 static void DebugSeed()
 {
-    customerQueue.Enqueue(new Customer("Anna"));
-    customerQueue.Enqueue(new Customer("Erik"));
-    customerQueue.Enqueue(new Customer("Lisa"));
 
-    products.TryGetValue("KANE", out Product? p);
-    if (p != null)
-    {
-        p.Stock--;
-        saleHistory.Push(new Sale(p.Code, p.Name, p.Price, "Anna"));
-logMessages.Add($"Försäljning: {p.Name} till Anna");
-    }
-
-    Console.WriteLine("[DEBUG]");
-    Console.WriteLine($"Kunder: {customerQueue.Count}, Försäljningar: {saleHistory.Count}");
-    Console.WriteLine($"Logg ({logMessages.Count} st):");
-    foreach (string msg in logMessages.TakeLast(5))
-    {
-        Console.WriteLine($"  - {msg}");
-    }
 }
     static void PrintProducts()
     {
@@ -256,8 +238,6 @@ logMessages.Add($"Försäljning: {p.Name} till Anna");
 
     static void AddProduct()
     {
-        Console.WriteLine("TODO: Implementera AddProduct.");
-
         // TODO:
         // Läs in produktkod.
         // Gör produktkoden till stora bokstäver med .ToUpper().
@@ -612,6 +592,27 @@ else
         // TODO:
         // Läs in en text från användaren.
         // Skriv ut texten bakofram använd en lämplig collektion.
+        Console.Write("Ange text att skriva bakofram: ");
+        string text = Console.ReadLine() ?? "";
+        string bakofram = "";
+
+        Stack<Char> textChar = new();
+
+        foreach (char t in text){
+          textChar.Push(t);
+        }
+        if (text.Length == 0){
+          Console.WriteLine("Tom inmantning!");
+        }
+        else
+        {
+        while(textChar.Count > 0){
+          bakofram += textChar.Pop();
+        }
+        Console.WriteLine($"bakofram = {bakofram}");
+
+
+        }
     }
 
     #endregion
