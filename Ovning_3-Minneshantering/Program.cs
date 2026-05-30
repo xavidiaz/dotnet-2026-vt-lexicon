@@ -958,31 +958,70 @@ else
 
         // Fråga 1:
         // Varför ändras inte number1 när number2 ändras?
-        Console.WriteLine("Svar 1: TODO - skriv ditt svar här");
+        Console.WriteLine(
+            Environment.NewLine +
+            "Svar 1:" + 
+            Environment.NewLine +
+            "'int' är en value type, så number2 får en kopia av värdet. Att ändra number2 påverkar inte number1"
+            );
 
         // Fråga 2:
         // Varför ändras inte score1.Points när score2.Points ändras?
-        Console.WriteLine("Svar 2: TODO - skriv ditt svar här");
+        Console.WriteLine(
+            Environment.NewLine + 
+            "Svar 2:" + 
+            Environment.NewLine +
+            "Struct är value type. " +
+            "Eftersom, det är en kopian inte ej referens till score1"
+            );
 
         // Fråga 3:
         // Varför ändras product1.Stock när product2.Stock ändras?
-        Console.WriteLine("Svar 3: TODO - skriv ditt svar här");
+        Console.WriteLine(
+           Environment.NewLine +
+           "Svar 3:" + 
+           Environment.NewLine +
+           "Eftersom det är en referens. När man ändras product2 det som ändras i verkligheten är product1."
+           );
 
         // Fråga 4:
         // Är Product en value type eller reference type?
-        Console.WriteLine("Svar 4: TODO - skriv ditt svar här");
+        Console.WriteLine(
+            Environment.NewLine +
+            "Svar 4:" +
+            Environment.NewLine +
+            "'class' = referens type (heapen), 'struct' = value type (stacken)." +
+            Environment.NewLine +
+            "'Product' är en class -> alltså referencs type."
+            );
 
         // Fråga 5:
         // Vad ligger på heapen i Product-exemplet?
-        Console.WriteLine("Svar 5: TODO - skriv ditt svar här");
+        Console.WriteLine(
+            Environment.NewLine + 
+            "Svar 5:" + 
+            "Själva Product-objektet (med alla properties) ligger på heapen.Variablerna 'product1'och 'product2' på stacken pekar dit."
+            );
 
         // Fråga 6:
         // Vad innebär det att två variabler kan peka på samma objekt?
-        Console.WriteLine("Svar 6: TODO - skriv ditt svar här");
+        Console.WriteLine(
+            Environment.NewLine + 
+            "Svar 6:" + 
+            Environment.NewLine + 
+            "Att ändra objektet via en variabel syns via alla variabler som pekar på samma objekt, eftersom det bara finns ett objekt i minnet."
+            );
 
         // Fråga 7:
         // Vad är skillnaden mellan stacken i minnet och Stack<T> som datastruktur?
-        Console.WriteLine("Svar 7: TODO - skriv ditt svar här");
+        Console.WriteLine(
+            Environment.NewLine +
+            "Svar 7:" +
+            Environment.NewLine +
+            "Stacken i minnet är en del av datorns minneshangering, hanterar metodanrop och lokala variabler automatiskt" +
+            Environment.NewLine +
+            "Stack<T> är en datastruktur."
+            );
     }
 
     #endregion
