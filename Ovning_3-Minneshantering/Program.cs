@@ -177,7 +177,10 @@ internal class Program
 
 static void DebugSeed()
 {
-
+logMessages.Add("Produkt tillagd: KANE - kanelbulle");
+logMessages.Add("Produkt tillagd: CHOK - chokladboll");
+logMessages.Add("Lager ändrat: SEML, nytt saldo: 15");
+logMessages.Add("Anna ställde sig i kön");
 }
     static void PrintProducts()
     {
@@ -587,7 +590,6 @@ else
     static void ReverseTextLab()
     {
         Console.WriteLine("=== Stack-labb: vänd text ===");
-        Console.WriteLine("TODO: Implementera ReverseTextLab.");
 
         // TODO:
         // Läs in en text från användaren.
@@ -632,10 +634,25 @@ else
         // Annars: loopa igenom logMessages och skriv ut varje meddelande.
 
         Console.WriteLine("TODO: Implementera PrintLog.");
+        if(logMessages.Count == 0){
+          Console.WriteLine("Inga loggmeddelanden finns!");
+        }
+        else
+        {
+          foreach(string log in logMessages)
+          {
+            Console.WriteLine(log);
+          }
+        }
 
         // Fråga:
         // Varför passar List bra för loggmeddelanden?
-        Console.WriteLine("Svar: TODO - skriv ditt svar här");
+        Console.WriteLine(
+            "Svar:" +
+            Environment.NewLine +
+            "List sparar i ordning och alla meddelande är lättillgängliga via index (list[i]) utan att något tas bort."
+
+            );
     }
 
     static void ListLab()
