@@ -684,22 +684,50 @@ else
         // TODO:
         // Lägg till minst 4 egna varor med en loop.
         // Skriv ut hela listan.
+       
+        string[] extraVaror = ["Ris","Gurka", "Sallad", "Te"];
+        foreach(string vara in extraVaror){
+          shoppingList.Add(vara);
+        }
+        Console.WriteLine(Environment.NewLine);
+        Console.WriteLine("-- Listan --");
+        foreach(string vara in shoppingList){
+          Console.WriteLine(vara);
+        }
 
+        Console.WriteLine(Environment.NewLine);
         // Fråga 1:
         // Vad betyder Count?
-        Console.WriteLine("Svar 1: TODO - skriv ditt svar här");
+        Console.WriteLine(
+            "Svar 1:" +
+            Environment.NewLine +
+            "Antal element som faktiskt finns i listan"
+            );
 
         // Fråga 2:
         // Vad betyder Capacity?
-        Console.WriteLine("Svar 2: TODO - skriv ditt svar här");
+        Console.WriteLine(
+            "Svar 2:" + 
+            Environment.NewLine +
+            "Mängden plats som listan har reserverat i minnet. Kan det vara lika med eller store än Count."
+            );
 
         // Fråga 3:
         // Varför ökar inte Capacity med exakt 1 varje gång?
-        Console.WriteLine("Svar 3: TODO - skriv ditt svar här");
+        Console.WriteLine(
+            "Svar 3: " + 
+            Environment.NewLine +
+            "Eftersom minnet fördubblas när kräver store Count än lika, med (0->4->8->16->32)."
+            );
 
         // Fråga 4:
         // Minskar Capacity automatiskt när element tas bort?
-        Console.WriteLine("Svar 4: TODO - skriv ditt svar här");
+        Console.WriteLine(
+            "Svar 4:" + 
+            Environment.NewLine + 
+            "Capacity minskar aldrig automatiskt vid borttagning. Listan behåller reservat minne." +
+            "För att kunna frias minne används <lista>.TrimExcess()."
+            );
     }
 
     static void PrintListInfo(List<string> list, string message)
