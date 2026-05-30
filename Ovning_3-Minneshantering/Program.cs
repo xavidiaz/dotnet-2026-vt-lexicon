@@ -752,23 +752,52 @@ else
         // TODO:
         // Skriv ut alla veckodagar med en for-loop.
         // Tips: använd weekdays.Length för att veta hur många element det finns.
+        Console.WriteLine(
+            Environment.NewLine +
+            "-- for-loop --"
+            );
+        for(int day = 0; day < weekdays.Length; day++){
+          Console.WriteLine(weekdays[day]);
+        }
 
         // TODO:
         // Skriv ut alla veckodagar med foreach.
 
-        Console.WriteLine("TODO: Implementera utskrifter i ArrayLab.");
+        Console.WriteLine(
+            Environment.NewLine +
+            "-- foreach-loop"
+            );
+
+        foreach(string day in weekdays){
+          Console.WriteLine(day);
+        }
 
         // Fråga 1:
         // När passar en array bättre än en List?
-        Console.WriteLine("Svar 1: TODO - skriv ditt svar här");
+        Console.WriteLine(
+            Environment.NewLine +
+            "Svar 1:" + 
+            Environment.NewLine +
+            "Array passar bättre när storleken är känd och fast, t.ex veckodagar (alltid 7)." +
+            "Minder overhead än List, eftersom inget behov av dynamiskt storlek."
+            );
 
         // Fråga 2:
         // Vad händer om du försöker skriva weekdays[5]?
-        Console.WriteLine("Svar 2: TODO - skriv ditt svar här");
+        Console.WriteLine(
+            Environment.NewLine + 
+            "Svar 2:" +
+            Environment.NewLine +
+            "'IndexOutOfRangeException' - arrayen har 5 element med index 0-4, så index finns inte."
+            );
 
         // Fråga 3:
         // Varför måste arrayens storlek anges från början?
-        Console.WriteLine("Svar 3: TODO - skriv ditt svar här");
+        Console.WriteLine(
+            Environment.NewLine + 
+            "Svar 3:" + 
+            Environment.NewLine + 
+            "Arrayen reserverar ett sammanhängande block i minnet vid skapande. Storleken behövs for att veta hur mycket minne som ska reserveras.");
     }
 
     #endregion
