@@ -24,6 +24,9 @@ internal class Program
     {
         //ToDo implementera 
         SeedProducts();
+        DebugSeed();
+        Console.WriteLine("Tryck valfri tangent för att fortsätta till menyn");
+        Console.ReadKey();
 
         bool running = true;
 
@@ -170,9 +173,30 @@ internal class Program
         products["BUDA"] = new Product("BUDA", "budapestrulle", 42.00m, 15);
         products["MUNK"] = new Product("MUNK", "munk", 22.00m, 45);
         products["NAPO"] = new Product("NAPO", "napoleonbakelse", 48.00m, 12);
-
     }
 
+static void DebugSeed()
+{
+    customerQueue.Enqueue(new Customer("Anna"));
+    customerQueue.Enqueue(new Customer("Erik"));
+    customerQueue.Enqueue(new Customer("Lisa"));
+
+    products.TryGetValue("KANE", out Product? p);
+    if (p != null)
+    {
+        p.Stock--;
+        saleHistory.Push(new Sale(p.Code, p.Name, p.Price, "Anna"));
+logMessages.Add($"Försäljning: {p.Name} till Anna");
+    }
+
+    Console.WriteLine("[DEBUG]");
+    Console.WriteLine($"Kunder: {customerQueue.Count}, Försäljningar: {saleHistory.Count}");
+    Console.WriteLine($"Logg ({logMessages.Count} st):");
+    foreach (string msg in logMessages.TakeLast(5))
+    {
+        Console.WriteLine($"  - {msg}");
+    }
+}
     static void PrintProducts()
     {
         Console.WriteLine("=== Produkter ===");
@@ -515,7 +539,7 @@ internal class Program
                     product.Stock--;
                     Customer kund = customerQueue.Dequeue();
                     saleHistory.Push(new Sale(product.Code, product.Name, product.Price, kund.Name));
-                    logMessages.Add($"försäljning: {product.Name} till {kund.Name}");
+                    logMessages.Add($"försäljning: {product.ToString()} till {kund.Name}");
                 }
                 else
                 {
@@ -551,9 +575,33 @@ internal class Program
         // Öka produktens Stock med 1.
         // Logga vad som ångrades i logMessages.
 
+if (saleHistory.Count == 0)
+{
+    Console.WriteLine("Sale History är tom!");
+}
+else
+{
+    Sale last = saleHistory.Pop();
+    string code = last.ProductCode;
+    Console.WriteLine("Here - " + code);
+    if (products.TryGetValue(code, out Product? p))
+    {
+        p.Stock++;
+        logMessages.Add($"Ångrad försäljning: {last}");
+        Console.WriteLine($"Ångrad försäljning: {last}");
+    }
+}      
+
         // Fråga:
         // Vad betyder LIFO?
-        Console.WriteLine("Svar: TODO - skriv ditt svar här");
+        Console.WriteLine(
+            "Svar" +
+            Environment.NewLine +
+            "LIFO - Last in, First Out." +
+            "senaste elemenetet som lades till tas ut först." +
+            "Det är det mest intresanta valet i detta fall eftersom man vanligtvis vill ändra det senast tillagda elemenetet"
+
+            );
     }
 
     static void ReverseTextLab()
