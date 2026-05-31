@@ -810,46 +810,65 @@ else
 
     static void WordCountLab()
     {
-        Console.WriteLine("=== Dictionary-labb: räkna ord ===");
+      Console.WriteLine("=== Dictionary-labb: räkna ord ===");
 
-        Console.WriteLine("Skriv en mening:");
-        string text = ReadLine;
+      Console.WriteLine("Skriv en mening:");
+      string text = ReadLine;
 
-        //ToDo: Skriv koden för CountWords
-        Dictionary<string, int> wordCounts = CountWords(text);
+      //ToDo: Skriv koden för CountWords
+      Dictionary<string, int> wordCounts = CountWords(text);
 
-        Console.WriteLine("Resultat:");
+      Console.WriteLine("Resultat:");
 
-        foreach (KeyValuePair<string, int> pair in wordCounts)
-        {
-            Console.WriteLine($"{pair.Key}: {pair.Value}");
-        }
+      foreach (KeyValuePair<string, int> pair in wordCounts)
+      {
+          Console.WriteLine($"{pair.Key}: {pair.Value}");
+      }
 
-        // Fråga:
-        // Varför passar Dictionary bra när vi ska räkna ord?
-        Console.WriteLine("Svar: TODO - skriv ditt svar här");
+      // Fråga:
+      // Varför passar Dictionary bra när vi ska räkna ord?
+      Console.WriteLine("Svar: TODO - skriv ditt svar här");
     }
 
     static Dictionary<string, int> CountWords(string text)
     {
-        Dictionary<string, int> wordCounts = new Dictionary<string, int>();
+      Dictionary<string, int> wordCounts = new Dictionary<string, int>();
 
-        // TODO:
-        // Dela upp text i ord med string.Split.
-        // Separera på: mellanslag (ett eller flera), punkt, !, ?, :, ;
-        // Tips: string[] words = text.Split(new char[] { ' ', '.', '!', '?', ':', ';' },
-        //                                   StringSplitOptions.RemoveEmptyEntries);
-        //
-        // Loopa igenom orden.
-        // Gör varje ord till gemener med .ToLower() så att "Hej" och "hej" räknas som samma.
-        // Om ordet redan finns i wordCounts → öka värdet med 1.
-        // Annars → lägg till ordet med värdet 1.
+      // TODO:
+      // Dela upp text i ord med string.Split.
+      // Separera på: mellanslag (ett eller flera), punkt, !, ?, :, ;
+      // Tips: string[] words = text.Split(new char[] { ' ', '.', '!', '?', ':', ';' },
+      //                                   StringSplitOptions.RemoveEmptyEntries);
 
-        // Fråga:
-        // Vad är nyckeln och vad är värdet i wordCounts?
-        Console.WriteLine("Svar: TODO - skriv ditt svar här");
+      string[] words = text.Split(new char[] { ' ', '.', '!', '?', ':', ';' }, StringSplitOptions.RemoveEmptyEntries);
 
-        return wordCounts;
+      // Loopa igenom orden.
+      // Gör varje ord till gemener med .ToLower() så att "Hej" och "hej" räknas som samma.
+      // Om ordet redan finns i wordCounts → öka värdet med 1.
+      // Annars → lägg till ordet med värdet 1.
+
+      foreach (string w in words)
+      {
+          string word = w.ToLower();
+          if (wordCounts.ContainsKey(word)){
+            wordCounts[word]+=1;
+          }
+          else
+          {
+          wordCounts[word] = 1;
+          }
+      }
+      // Fråga:
+      // Vad är nyckeln och vad är värdet i wordCounts?
+      Console.WriteLine(
+          Environment.NewLine + 
+          "Svar:" +
+          Environment.NewLine +
+          "Nyckeln är själva ordet som räknas och värdet är antalet förekomster av ordet."
+          );
+
+      return wordCounts;
+
     }
 
     // ============================================================
